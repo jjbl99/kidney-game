@@ -7,6 +7,11 @@ import csv
 import importlib
 
 
+def init(REPO):
+    global repo 
+    repo = REPO
+
+
 # +
 def git_add(new_files_PATH):
     """git adds the files in the list new_files_PATH"""
