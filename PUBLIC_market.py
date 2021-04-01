@@ -47,6 +47,10 @@ def new_game(p_PATH):
     file.truncate(0)
     file.write("new-game")
     file.close()
+    
+    np.savetxt(os.path.join(p_PATH,'match.csv'), np.array([]), fmt='%i', delimiter=',')
+    git_add(os.path.join(p_PATH, 'match.csv'))
+    
     git_push('new-game')
 
 
