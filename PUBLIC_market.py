@@ -1,17 +1,3 @@
-# +
-global PATH
-global player_id
-global p_PATH
-
-# please write the path of the folder in which you stored dynamic-games-test
-PATH = '.'
-
-# please write your player id
-player_id = '1'
-
-p_PATH = PATH+'/player'+player_id
-
-# +
 import os
 import git
 from git import Repo
@@ -19,9 +5,6 @@ import numpy as np
 import pandas as pd
 import csv
 import importlib
-
-git_dir = "https://github.com/jjbl99/kidney-game.git" # address of your repo on git
-repo = Repo(PATH) # create an object "repo" that corresponds to your local repository
 
 
 # +
