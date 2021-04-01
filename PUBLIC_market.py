@@ -166,3 +166,5 @@ class market():
         gr2 = nx.from_edgelist(G_coord[match.astype(bool)], create_using=nx.DiGraph)
         nx.draw_spring(gr2, with_labels=True, node_size=500)
         plt.show()
+
+
