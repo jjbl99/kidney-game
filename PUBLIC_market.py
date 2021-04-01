@@ -10,9 +10,11 @@ importlib.reload(PUBLIC_functions)
 from PUBLIC_functions import *
 
 
-def init(REPO):
+def init(REPO, P):
     global repo 
+    global PATH
     repo = REPO
+    PATH = P
 
 
 # +
