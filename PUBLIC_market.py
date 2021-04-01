@@ -57,16 +57,21 @@ def get_market(p_PATH):
 
     [t],[n],[K],[L],[M] = par[:-1].astype(int)
     
-    if par[-1].size > 1:
-        NDDs = np.array(par[-1,0].strip().split(','), dtype = int)
-        
-    elif par[-1].size == 1:
-        NDDs = np.array(par[-1])
     
-    elif par[-1] == 'NaN':
+    if (par[-1].dtype == float) and (np.isnan(par[-1,0])):
         NDDs = np.array([])
+        
+    else:
+        if type(par[-1,0]) == str:
+            NDDs = np.array(par[-1,0].strip().split(','), dtype = int)
+        else:
+            NDDs = np.array(par[-1])
+        
+        if NDDs.shape == ():
+            NDDs = NDDs[np.newaxis]
     
-    graph = pd.read_csv(os.path.join(p_PATH,'graph.csv'),delimiter=';').to_numpy()
+    # graph = pd.read_csv(os.path.join(p_PATH,'graph.csv'),delimiter=';').to_numpy()
+    graph = np.genfromtxt(os.path.join(p_PATH,'graph.csv'),delimiter=',').astype(int)
     
     data = pd.read_csv(os.path.join(p_PATH,'data.csv'),delimiter=';')
     
@@ -76,7 +81,7 @@ def get_market(p_PATH):
 def submit(p_PATH, t, match = np.array([])):
     
     # push match.csv
-    np.savetxt(os.path.join(PATH,'match.csv'), self.graph, fmt='%i')
+    np.savetxt(os.path.join(p_PATH,'match.csv'), match, fmt='%i', delimiter=',')
     
     # update status
     file = open(os.path.join(p_PATH,"status.txt"),"w")
