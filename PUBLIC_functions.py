@@ -5,8 +5,6 @@ import pandas as pd
 from math import * 
 import networkx as nx
 
-"DID IT WORK"
-
 
 def adj_to_coord(graph, NDDs = np.array([])): 
     """
