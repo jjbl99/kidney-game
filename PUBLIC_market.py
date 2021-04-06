@@ -82,6 +82,14 @@ def get_market(p_PATH):
     return market(t,n,K,L,M,NDDs,graph,data)
 
 
+# +
+# def status(p_PATH): 
+#     file = open(player_PATH+'/status.txt',"r") # TRY AND READ DIRECTLY
+#     instruction = file.readline()
+#     if instruction == "you cannot play": 
+#         break
+# -
+
 def submit(p_PATH, t, match = np.array([])):
     
     # push match.csv
