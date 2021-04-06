@@ -27,13 +27,13 @@ def git_push(COMMIT_MESSAGE):
     try: 
         repo.git.add(update = True) # automatically adds any file that appeared in the repo
         repo.index.commit(COMMIT_MESSAGE) 
-        origin = repo.remote(name='main') # choose branch
+        origin = repo.remote(name='origin') # choose branch
         origin.push()
     except: 
         print('Some error occured while pushing the code')
 
 def git_pull():
-    o = repo.remote(name='main')
+    o = repo.remote(name='origin')
     o.pull()
 
 
