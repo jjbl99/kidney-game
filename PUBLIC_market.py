@@ -13,8 +13,8 @@ from PUBLIC_functions import *
 def init(REPO, P):
     global repo 
     global PATH
-    repo = REPO
-    PATH = P
+    repo = REPO # instance of Repo class (local repo)
+    PATH = P # local
 
 
 # +
